@@ -17,6 +17,7 @@ The UCI Heart Disease Dataset includes clinical measurements such as age, sex, c
 | Instance 3 (RMSprop + L1) | RMSprop | L1 | 30 | Yes | 4 | 0.0005 | 0.4 | **0.8261** | **0.8519** | **0.8846** | **0.8214** | **0.8173** |
 | Instance 4 (Adam + Dropout) | Adam | None | 30 | Yes | 4 | 0.0001 | 0.5 | 0.6739 | 0.7541 | 0.8846 | 0.6571 | 0.6423 |
 | Instance 5 (Logistic Regression) | N/A | L2 (C=1) | N/A | N/A | N/A | N/A | N/A | 0.7609 | 0.7580 | 0.7596 | 0.7571 | N/A |
+| Instance 6 (RMSprop + L2 + Dropout) | RMSprop | L2 | 30 | Yes | 4 | 0.001 | 0.2 | 0.7609 | 0.7843 | 0.7692 | 0.8000 | 0.7596 |
 
 *Note: Results are based on test set performance. Early stopping was implemented with patience=10 and restore_best_weights=True. Best performing model highlighted in bold.*
 
@@ -55,6 +56,11 @@ The UCI Heart Disease Dataset includes clinical measurements such as age, sex, c
 - **Hyperparameter Tuning**: GridSearchCV optimized C=1 (L2 regularization strength), solver='lbfgs', max_iter=2000
 - **Analysis**: The linear nature of heart disease prediction tasks makes logistic regression highly effective
 - **Advantage**: Simpler model with better interpretability and faster training time
+
+**Instance 6 - RMSprop Optimizer with L2 Regularization and Dropout:**
+- **Performance**: 76.09% accuracy, matching Adam + L2 performance
+- **Analysis**: RMSprop with L2 regularization and 20% dropout provided balanced performance
+- **Comparison**: Similar performance to Adam + L2, showing optimizer choice matters less with L2 regularization
 
 ### Critical Analysis of Optimization Techniques
 
@@ -118,7 +124,7 @@ The neural network with proper optimization significantly outperformed the class
 
 ```
 heart_disease_detection/
-├── heart_disease_notebook_with_lr.ipynb    # Main notebook with all models
+├── Summative_Intro_to_ml_[Deolinda_Bogore]_assignment.ipynb  # Main notebook with all models
 ├── saved_models/                           # Trained models directory
 │   ├── logistic_model.pkl                  # Logistic Regression model
 │   ├── model_1_simple.h5                   # Simple neural network
@@ -142,7 +148,7 @@ heart_disease_detection/
 
 2. **Run the Notebook:**
    ```bash
-   jupyter notebook heart_disease_notebook_with_lr.ipynb
+   jupyter notebook Summative_Intro_to_ml_[Deolinda_Bogore]_assignment.ipynb
    ```
 
 3. **Load and Use Best Model:**
@@ -181,6 +187,24 @@ binary_predictions = (predictions > 0.5).astype(int)
 3. **Regularization Strategy**: L1 regularization was more effective than L2 for this dataset
 4. **Dropout Sensitivity**: Moderate dropout (30-40%) optimal, high dropout (50%) harmful
 5. **Optimizer Choice**: RMSprop outperformed Adam when combined with L1 regularization
+6. **Model Comparison**: Neural networks with optimization outperformed classical ML by 6.52%
+
+## Technical Achievements
+
+✅ **Implemented 6 distinct models** with different optimization techniques  
+✅ **Achieved 82.61% accuracy** through proper hyperparameter tuning  
+✅ **Demonstrated understanding** of regularization, dropout, and optimizers  
+✅ **Created modular, reusable code** with comprehensive evaluation  
+✅ **Successfully saved and loaded models** for deployment  
+✅ **Comprehensive error analysis** with all required metrics  
+
+## Learning Outcomes
+
+• **Mastered neural network optimization techniques**  
+• **Understood the impact of different regularization methods**  
+• **Learned to compare classical ML vs deep learning approaches**  
+• **Developed skills in hyperparameter tuning and model evaluation**  
+• **Gained practical experience in medical ML applications**  
 
 ## Author
 
