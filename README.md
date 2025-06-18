@@ -221,6 +221,10 @@ heart_disease_detection/
    jupyter notebook Summative_Intro_to_ml_[Deolinda_Bogore]_assignment.ipynb
    ```
 
+3. **Load and Use Best Model:**
+   ```bash
+   python load_logistic_regression_model.py
+   ```
 ## Model Loading Instructions
 
 The best performing model (RMSprop + L1) can be loaded and used as follows:
