@@ -78,7 +78,7 @@ Each feature directly relates to cardiovascular health assessment and contribute
 
 | Training Instance | Optimizer Used | Regularizer Used | Epochs | Early Stopping | Number of Layers | Learning Rate | Dropout | Accuracy | F1 Score | Recall | Precision | ROC AUC |
 |-------------------|----------------|------------------|--------|----------------|------------------|---------------|---------|----------|----------|--------|-----------|---------|
-| Instance 1 (Simple NN) | Default (Adam) | None | 30 | No | 4 | 0.001 | 0.0 | 0.6957 | 0.7083 | 0.6538 | 0.7727 | 0.7019 |
+| Instance 1 (Simple NN) | Default | None | 30 | No | 4 | 0.001 | 0.0 | 0.6957 | 0.7083 | 0.6538 | 0.7727 | 0.7019 |
 | Instance 2 (Adam + L2) | Adam | L2 | 30 | Yes | 4 | 0.001 | 0.3 | 0.7609 | 0.7843 | 0.7692 | 0.8000 | 0.7596 |
 | Instance 3 (RMSprop + L1) | RMSprop | L1 | 30 | Yes | 4 | 0.0005 | 0.4 | **0.8261** | **0.8519** | **0.8846** | **0.8214** | **0.8173** |
 | Instance 4 (Adam + Dropout) | Adam | None | 30 | Yes | 4 | 0.0001 | 0.5 | 0.6739 | 0.7541 | 0.8846 | 0.6571 | 0.6423 |
