@@ -205,8 +205,6 @@ heart_disease_detection/
 │   ├── model_4_adam_dropout.h5             # Adam + high dropout
 │   ├── model_5_rmsprop_l2.h5               # RMSprop + L2 + dropout
 │   └── model_architecture.png              # Neural network diagram
-├── load_logistic_regression_model.py       # Demo script for model usage
-├── requirements.txt                        # Python dependencies
 ├── heart.csv                              # Dataset
 └── README.md                              # This file
 ```
@@ -221,11 +219,6 @@ heart_disease_detection/
 2. **Run the Notebook:**
    ```bash
    jupyter notebook Summative_Intro_to_ml_[Deolinda_Bogore]_assignment.ipynb
-   ```
-
-3. **Load and Use Best Model:**
-   ```bash
-   python load_logistic_regression_model.py
    ```
 
 ## Model Loading Instructions
