@@ -120,5 +120,6 @@ binary_predictions = (predictions > 0.5).astype(int)
 ## Author
 
 **Deolinda Bio Bogore**  
+**Video Presentation**
 African Leadership University  
 BSE - Introduction to Machine Learning 
