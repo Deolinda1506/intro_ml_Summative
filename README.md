@@ -1,10 +1,76 @@
 # Heart Disease Detection using Machine Learning
 
 ## Problem Statement
-Heart disease continues to be a leading cause of death worldwide, with Africa witnessing a marked rise due to urbanization, lifestyle changes, and inadequate diagnostic infrastructure. This project proposes a Machine Learning (ML) classification model for early detection of heart disease using essential patient attributes such as age, blood pressure, and cholesterol levels. The UCI Heart Disease Dataset contains 13 clinical parameters from 303 patients, providing a rich dataset for binary classification of heart disease presence.
+Heart disease is a leading cause of death worldwide, with Africa experiencing rising rates due to urbanization and lifestyle changes. This project implements machine learning classification models for early heart disease detection using clinical patient data. The heart.csv dataset contains 13 clinical parameters from 303 patients for binary classification of heart disease presence. We compare classical ML (Logistic Regression) with neural networks using various optimization techniques to determine the most effective approach.
 
 ## Dataset Overview
-The UCI Heart Disease Dataset includes clinical measurements such as age, sex, chest pain type, resting blood pressure, cholesterol levels, fasting blood sugar, resting electrocardiographic results, maximum heart rate achieved, exercise induced angina, ST depression induced by exercise, slope of peak exercise ST segment, number of major vessels colored by fluoroscopy, and thalassemia type. Each feature directly relates to cardiovascular health assessment and contributes to the classification task.
+
+The heart.csv dataset is a comprehensive medical dataset containing  patient records with  clinical features for heart disease prediction. This dataset includes demographic information, clinical measurements, cardiac symptoms, diagnostic test results, and advanced cardiovascular indicators. The target variable indicates presence (1) or absence (0) of heart disease, with a balanced distribution of 54.5% positive cases and 45.5% negative cases.
+
+### Exploring Heart Data using the "heart.csv" Dataset
+
+**Introduction:**
+In this notebook, we analyze data related to cardiac features of patients from the "heart.csv" dataset. This dataset provides comprehensive information about patients, including age, gender, blood pressure, cholesterol levels, electrocardiographic (ECG) features, and more.
+
+**Dataset Information:**
+The heart.csv dataset includes the following clinical features:
+
+- **age**: The age of the patient (years)
+- **sex**: Gender of the patient (0: female, 1: male)
+- **cp**: Type of chest pain (1: typical angina, 2: atypical angina, 3: non-anginal pain, 4: asymptomatic)
+- **trestbps**: Resting blood pressure (mm Hg on admission to the hospital)
+- **chol**: Serum cholesterol (mg/dl)
+- **fbs**: Fasting blood sugar > 120 mg/dl (1: true, 0: false)
+- **restecg**: Resting electrocardiographic results (0: normal, 1: having ST-T wave abnormality, 2: showing probable or definite left ventricular hypertrophy)
+- **thalach**: Maximum heart rate achieved (beats per minute)
+- **exang**: Exercise induced angina (1: yes, 0: no)
+- **oldpeak**: ST depression induced by exercise relative to rest
+- **slope**: Slope of the peak exercise ST segment (1: upsloping, 2: flat, 3: downsloping)
+- **ca**: Number of major vessels (0-3) colored by fluoroscopy
+- **thal**: Thalassemia type (3: normal, 6: fixed defect, 7: reversable defect)
+- **target**: Target variable indicating presence of heart disease (0: no disease, 1: disease present)
+
+Each feature directly relates to cardiovascular health assessment and contributes to the classification task. The dataset contains 303 patient records with 13 input features and 1 target variable, making it suitable for binary classification of heart disease presence.
+
+### Dataset Statistics and Analysis
+
+**Data Overview:**
+- **Total Records**: 303 patients
+- **Features**: 13 clinical parameters
+- **Target Variable**: Binary classification (0: no heart disease, 1: heart disease present)
+- **Missing Values**: None (complete dataset)
+- **Data Types**: Mixed (numerical and categorical)
+
+**Target Distribution:**
+- **Heart Disease Present**: 165 patients (54.5%)
+- **No Heart Disease**: 138 patients (45.5%)
+- **Class Balance**: Slightly imbalanced but manageable for binary classification
+
+**Key Statistical Insights:**
+- **Age Range**: 29-77 years (mean: 54.37 years)
+- **Gender Distribution**: 207 males (68.3%), 96 females (31.7%)
+- **Blood Pressure**: 94-200 mm Hg (mean: 131.62 mm Hg)
+- **Cholesterol**: 126-564 mg/dl (mean: 246.26 mg/dl)
+- **Max Heart Rate**: 71-202 bpm (mean: 149.65 bpm)
+
+**Feature Categories:**
+1. **Demographic Features**: age, sex
+2. **Clinical Measurements**: trestbps, chol, fbs
+3. **Cardiac Symptoms**: cp, exang
+4. **Diagnostic Tests**: restecg, thalach, oldpeak
+5. **Advanced Diagnostics**: slope, ca, thal
+
+**Data Quality:**
+- **Completeness**: 100% (no missing values)
+- **Consistency**: All values within expected medical ranges
+- **Reliability**: Clinical measurements from medical examinations
+- **Scalability**: Features are on different scales, requiring normalization
+
+**Preprocessing Requirements:**
+- **Feature Scaling**: StandardScaler applied to numerical features
+- **Categorical Encoding**: Ordinal encoding for categorical variables
+- **Train-Test Split**: 80-20 split for model evaluation
+- **Cross-Validation**: 5-fold cross-validation for hyperparameter tuning
 
 ## Model Implementation Results
 
@@ -53,9 +119,15 @@ The UCI Heart Disease Dataset includes clinical measurements such as age, sex, c
 
 **Instance 5 - Logistic Regression (Classical ML):**
 - **Performance**: 76.09% accuracy, outperforming most neural network models
-- **Hyperparameter Tuning**: GridSearchCV optimized C=1 (L2 regularization strength), solver='lbfgs', max_iter=2000
-- **Analysis**: The linear nature of heart disease prediction tasks makes logistic regression highly effective
-- **Advantage**: Simpler model with better interpretability and faster training time
+- **Hyperparameter Optimization**: GridSearchCV with 5-fold cross-validation tested:
+  - **C values**: [0.001, 0.01, 0.1, 1, 10, 100] (L2 regularization strength)
+  - **Solvers**: ['lbfgs', 'liblinear', 'newton-cg', 'sag', 'saga']
+  - **Max iterations**: [1000, 2000, 3000]
+  - **Best parameters**: C=1.0, solver='lbfgs', max_iter=2000
+- **Regularization**: L2 regularization (Ridge) with optimal strength C=1.0
+- **Convergence**: LBFGS solver converged in 2000 iterations with stable coefficients
+- **Feature Importance**: Coefficients provide direct interpretability of clinical features
+- **Advantage**: Linear model captures the fundamental relationships in medical data effectively
 
 **Instance 6 - RMSprop Optimizer with L2 Regularization and Dropout:**
 - **Performance**: 76.09% accuracy, matching Adam + L2 performance
