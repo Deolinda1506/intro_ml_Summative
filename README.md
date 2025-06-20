@@ -121,7 +121,6 @@ binary_predictions = (predictions > 0.5).astype(int)
 
 **Deolinda Bio Bogore**  
 **Video Presentation**
-https://drive.google.com/file/d/123iDKq1x48wc0zgBUX8OOYJrkVhLo0FH/view?usp=sharing
-
+https://drive.google.com/file/d/1-ahxtnAsr7QhksKsAhrWIUVL65E4g1JX/view?usp=sharing
 African Leadership University  
 BSE - Introduction to Machine Learning 
